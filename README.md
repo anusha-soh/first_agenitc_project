@@ -3,12 +3,21 @@
 ## Project Overview
 This repository documents my 30-day journey of building and improving a project using the OpenAI SDK. The goal is to create a portfolio-worthy project while building consistency, learning new skills, and applying knowledge in practical ways.
 
+
 ## 🎯 Goals
 - Build a portfolio-worthy project
 - Develop consistency in coding and learning
 - Master the OpenAI SDK and its applications
 - Document the learning journey
 - Create something valuable for future career growth
+
+## 🎯 Project Vision
+
+Build an inventory management system where AI agents can:
+- Track stock levels and suggest actions
+- Auto-reorder items using rules or AI
+- Generate daily/weekly reports
+- Interact with a user interface or CLI for updates and decisions
 
 ## 📅 Daily Progress Log
 
@@ -17,10 +26,45 @@ This repository documents my 30-day journey of building and improving a project 
 - Set up README documentation
 - Established project goals and milestones
 
-## 🛠️ Technical Stack
-- Python
-- OpenAI SDK
-- [Additional technologies will be added as we progress]
+### Day 2
+- Selected project
+- Installed dependencies
+- Configure API key, set up .env 
+- Created a simple agent
+
+
+## 🧩 Tech Stack
+
+- **Frontend:** chainlit
+- **Backend:** Python
+- **AI/Agents:** OpenAI SDK
+- **Database:** 
+- **Deployment:** 
+
+## General commands
+- uv init agent_91
+
+- uv add openai-agents python-dotenv chainlit
+- uv run main.py
+- .venv\Scripts\activate
+
+    test if Chainlit working
+- uv run chainlit hello
+
+    commad to run 
+- uv run chainlit run main.py -w
+
+##
+uv run chainlit run chatbot.py -w
+
+
+## for ai-bot
+uv add python-dotenv chainlit openai-agents
+
+uv venv
+.venv\Scripts\activate
+uv run main.py
+
 
 ## 📚 Learning Journal
 This section will be updated daily with new learnings and insights.
@@ -30,6 +74,10 @@ This section will be updated daily with new learnings and insights.
 - Planning the project structure
 - Setting up version control
 
+### Day 2
+- Learn about basic inner working of `Runnrt` and `Agent` clsss.
+- Learn about virtual environment.
+
 ## 🎯 Project Milestones
 - [ ] Project Setup and Planning
 - [ ] Basic OpenAI Integration
@@ -37,14 +85,6 @@ This section will be updated daily with new learnings and insights.
 - [ ] UI/UX Development
 - [ ] Testing and Optimization
 - [ ] Documentation and Deployment
-
-## 📝 Daily Improvements
-This section will track the incremental improvements made each day.
-
-### Day 1
-- Created project repository
-- Established documentation structure
-- Set up initial project goals
 
 ## 🔄 Version History
 - v0.1.0 - Initial project setup
@@ -55,8 +95,14 @@ This section will track the incremental improvements made each day.
 ## 🤝 Contributing
 While this is primarily a learning project, suggestions and feedback are welcome!
 
+## 🌐 Links
+
+- **GitHub Repo:** [link](#)
+- **Live Demo:** [link](#)
+- **LinkedIn Series:** [link](#)
+
 ## 📄 License
-[To be determined]
+MIT – Use it, remix it, learn from it.
 
 ---
 *This README will be updated daily to reflect the project's progress and learning journey.* 
