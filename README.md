@@ -32,6 +32,9 @@ Build an inventory management system where AI agents can:
 - Configure API key, set up .env 
 - Created a simple agent
 
+### Day 3
+- Added exeptional hendling
+- Make agent conversational throug history 
 
 ## 🧩 Tech Stack
 
@@ -42,28 +45,17 @@ Build an inventory management system where AI agents can:
 - **Deployment:** 
 
 ## General commands
-- uv init agent_91
 
-- uv add openai-agents python-dotenv chainlit
-- uv run main.py
-- .venv\Scripts\activate
+- `uv init agent_01`
+- `uv add openai-agents python-dotenv chainlit`
+- `uv run main.py`
+- `.venv\Scripts\activate`
 
     test if Chainlit working
-- uv run chainlit hello
+- `uv run chainlit hello`
 
-    commad to run 
-- uv run chainlit run main.py -w
-
-##
-uv run chainlit run chatbot.py -w
-
-
-## for ai-bot
-uv add python-dotenv chainlit openai-agents
-
-uv venv
-.venv\Scripts\activate
-uv run main.py
+    commad to run chinlit project
+- `uv run chainlit run main.py -w`
 
 
 ## 📚 Learning Journal
@@ -77,6 +69,12 @@ This section will be updated daily with new learnings and insights.
 ### Day 2
 - Learn about basic inner working of `Runnrt` and `Agent` clsss.
 - Learn about virtual environment.
+
+### Day 3
+- Learned inner working on how openAI SDK context history through history and make chat conversational
+- Tried to learn significance of doc strings
+- Learned to apply typecasting through `typing` module
+-  
 
 ## 🎯 Project Milestones
 - [ ] Project Setup and Planning
