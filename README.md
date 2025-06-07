@@ -33,8 +33,15 @@ Build an inventory management system where AI agents can:
 - Created a simple agent
 
 ### Day 3
-- Added exeptional hendling
-- Make agent conversational throug history 
+- Added exceptional hendling
+- Make agent conversational through history 
+
+### Day 4
+- Added another file `streaming.py`
+- Added streamed response in `streaming.py`(might make this one my main)
+
+### Day 5
+- Added simple tool to agent
 
 ## 🧩 Tech Stack
 
@@ -54,7 +61,7 @@ Build an inventory management system where AI agents can:
     test if Chainlit working
 - `uv run chainlit hello`
 
-    commad to run chinlit project
+    run chinlit project
 - `uv run chainlit run main.py -w`
 
 
@@ -67,14 +74,24 @@ This section will be updated daily with new learnings and insights.
 - Setting up version control
 
 ### Day 2
-- Learn about basic inner working of `Runnrt` and `Agent` clsss.
+- Learn about basic inner working of `Runner` and `Agent` clsss.
 - Learn about virtual environment.
+- Understood how Chainlit's session memory works: you can store agents, config, and history to persist context between turns.
 
 ### Day 3
 - Learned inner working on how openAI SDK context history through history and make chat conversational
+- Explored how user messages are appended to history
 - Tried to learn significance of doc strings
 - Learned to apply typecasting through `typing` module
--  
+
+### Day 4
+- Learned how `@cl.on_chat_start` and `@cl.on_message` act as entry points,one for session setup, the other for every user message.
+- Explored how AI responses get streamed token-by-token for a smoother user experience.
+- Learned that `cl.Message` isn't just for sending replies — it holds both incoming and outgoing messages.
+
+### Day 5 
+- explored the inner workings of Chainlit, custom AI agents, and how to handle streamed responses in a conversational AI app
+-  Clarified key Python concepts `hasattr()`.
 
 ## 🎯 Project Milestones
 - [ ] Project Setup and Planning

@@ -8,6 +8,9 @@ import os
 load_dotenv()
 gemini_api_key = os.getenv('GEMINI_API_KEY')
 
+if not gemini_api_key:
+    raise ValueError("GEMINI_API_KEY environment variable is not set. Please set it to your Gemini API key.")
+
 
 @cl.on_chat_start
 async def start():
@@ -29,57 +32,55 @@ async def start():
         tracing_disabled=True
     )
 
-    """set up the chat session when user connect"""
-    cl.user_session.set("chat_history", [] )
+    """set up the chat session when user connect"""  
 
-    cl.user_session.set("config", config)
-
+    # Create a new agent with the specified model and instructions
     agent: Agent = Agent(
         name="Assistant",
         instructions="You are a helpful assistant",
         model=model
         )
     
+    # Initialize chat history and configuration in user session
+    cl.user_session.set("chat_history", [] )
+    cl.user_session.set("config", config)   
     cl.user_session.set("agent", agent)
 
-    await cl.Message(content="Welcome I am inventory management AI Assistant! How can I help you today?").send()
+    # Send a welcome message to the user
+    await cl.Message(content="Welcome I am management AI Assistant! How can I help you today?").send()
 
-
-    # gernal_info_agent = Agent(
-    #     name = "Anush",
-    #     instructions ="You are a professional assistant. You are helpful, creative, clever, and very friendly. You answer questions in a concise manner.",
-    #     model = model
-# )
 
 @cl.on_message
 async def main(message : cl.Message):
     """Process incoming messages and generate responses."""
-    # thinking message
-    msg = cl.Message("Thinking...")
+    # create a new message 
+    msg = cl.Message("")
     await msg.send()
 
     agent: Agent = cast(Agent, cl.user_session.get("agent"))
-    config: RunConfig = cast(RunConfig, cl.user_session.get("config"))
-
+    config: RunConfig = cast( RunConfig, cl.user_session.get("config"))
     history = cl.user_session.get("chat_history") or []
-    history.append({"role": "user", "content": message.content})
     
+    history.append({"role": "user", "content": message.content})
     try:
         print("\n[CALLING_AGENT_WITH_CONTEXT]\n", history, "\n")
 
-        result = Runner.run_sync(agent , history , run_config=config)
+        result = Runner.run_streamed(agent , history , run_config=config)
 
-        response_content = result.final_output
+        async for event in result.stream_events():
+            if event.type == "raw_response_event" and hasattr(event.data, 'delta'):
+                token = event.data.delta
+                await msg.stream_token(token)
 
-        msg.content = response_content
-        await msg.update()
 
+
+        history.append({"role": "assistant", "content": msg.content})  
         # Update the session with the new history.
-        cl.user_session.set("chat_history", result.to_input_list())
+        cl.user_session.set("chat_history", history)
         
         # Optional: Log the interaction
         print(f"User: {message.content}")
-        print(f"Assistant: {response_content}")
+        print(f"Assistant: {msg.content}")
 
 
 
