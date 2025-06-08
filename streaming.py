@@ -1,7 +1,7 @@
-from agents import Agent, Runner, AsyncOpenAI, OpenAIChatCompletionsModel
+from agents import Agent, Runner, AsyncOpenAI, OpenAIChatCompletionsModel, function_tool
 from agents.run import RunConfig
 from dotenv import load_dotenv
-from typing import cast
+from typing import cast , List
 import chainlit as cl
 import os
 
@@ -10,6 +10,15 @@ gemini_api_key = os.getenv('GEMINI_API_KEY')
 
 if not gemini_api_key:
     raise ValueError("GEMINI_API_KEY environment variable is not set. Please set it to your Gemini API key.")
+
+@function_tool
+def get_inventory():
+    inventory = {
+        "Shampoo" : 4,
+        "Soap" : 7,
+        "Hair oil" : 5,
+    }
+    return inventory
 
 
 @cl.on_chat_start
@@ -40,11 +49,19 @@ async def start():
         instructions="You are a helpful assistant",
         model=model
         )
+    quantity_agent : Agent = Agent(
+        name= 'quantity checker',
+        instructions= "You are a quantity checker agent, you Check the quantity of the given product and tell the user how many pieces of that product are available. only use 'get_inventory' tool to get informaton. If user asks something that is not in the your data, reply with 'Product not available'.",
+        model=model,
+        tools=[get_inventory]
+
+    )
     
     # Initialize chat history and configuration in user session
     cl.user_session.set("chat_history", [] )
     cl.user_session.set("config", config)   
     cl.user_session.set("agent", agent)
+    cl.user_session.set("quantity_agent", quantity_agent)
 
     # Send a welcome message to the user
     await cl.Message(content="Welcome I am management AI Assistant! How can I help you today?").send()

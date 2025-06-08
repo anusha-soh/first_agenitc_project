@@ -3,7 +3,6 @@
 ## Project Overview
 This repository documents my 30-day journey of building and improving a project using the OpenAI SDK. The goal is to create a portfolio-worthy project while building consistency, learning new skills, and applying knowledge in practical ways.
 
-
 ## 🎯 Goals
 - Build a portfolio-worthy project
 - Develop consistency in coding and learning
@@ -29,41 +28,44 @@ Build an inventory management system where AI agents can:
 ### Day 2
 - Selected project
 - Installed dependencies
-- Configure API key, set up .env 
+- Configured API key, set up .env 
 - Created a simple agent
 
 ### Day 3
-- Added exceptional hendling
-- Make agent conversational through history 
+- Added exception handling
+- Made agent conversational through history 
 
 ### Day 4
 - Added another file `streaming.py`
-- Added streamed response in `streaming.py`(might make this one my main)
+- Added streamed response in `streaming.py` (might make this one my main)
 
 ### Day 5
 - Added simple tool to agent
 
+### Day 6
+- Added simple inventory tool.
+- Created another agent to use that tool
+
 ## 🧩 Tech Stack
 
-- **Frontend:** chainlit
+- **Frontend:** Chainlit
 - **Backend:** Python
 - **AI/Agents:** OpenAI SDK
 - **Database:** 
 - **Deployment:** 
 
-## General commands
+## General Commands
 
 - `uv init agent_01`
 - `uv add openai-agents python-dotenv chainlit`
 - `uv run main.py`
 - `.venv\Scripts\activate`
 
-    test if Chainlit working
+    Test if Chainlit is working:
 - `uv run chainlit hello`
 
-    run chinlit project
+    Run Chainlit project:
 - `uv run chainlit run main.py -w`
-
 
 ## 📚 Learning Journal
 This section will be updated daily with new learnings and insights.
@@ -74,24 +76,28 @@ This section will be updated daily with new learnings and insights.
 - Setting up version control
 
 ### Day 2
-- Learn about basic inner working of `Runner` and `Agent` clsss.
-- Learn about virtual environment.
-- Understood how Chainlit's session memory works: you can store agents, config, and history to persist context between turns.
+- Learned about basic inner workings of `Runner` and `Agent` classes
+- Learned about virtual environment
+- Understood how Chainlit's session memory works: you can store agents, config, and history to persist context between turns
 
 ### Day 3
-- Learned inner working on how openAI SDK context history through history and make chat conversational
+- Learned inner workings of how OpenAI SDK context history works through history and makes chat conversational
 - Explored how user messages are appended to history
-- Tried to learn significance of doc strings
+- Tried to learn significance of docstrings
 - Learned to apply typecasting through `typing` module
 
 ### Day 4
-- Learned how `@cl.on_chat_start` and `@cl.on_message` act as entry points,one for session setup, the other for every user message.
-- Explored how AI responses get streamed token-by-token for a smoother user experience.
-- Learned that `cl.Message` isn't just for sending replies — it holds both incoming and outgoing messages.
+- Learned how `@cl.on_chat_start` and `@cl.on_message` act as entry points, one for session setup, the other for every user message
+- Explored how AI responses get streamed token-by-token for a smoother user experience
+- Learned that `cl.Message` isn't just for sending replies — it holds both incoming and outgoing messages
 
 ### Day 5 
-- explored the inner workings of Chainlit, custom AI agents, and how to handle streamed responses in a conversational AI app
--  Clarified key Python concepts `hasattr()`.
+- Explored the inner workings of Chainlit, custom AI agents, and how to handle streamed responses in a conversational AI app
+- Clarified key Python concepts like `hasattr()`
+
+### Day 6
+- Learned about async/await patterns in Python for handling asynchronous operations
+- Learned to Implemented basic tool functionality for agents (identified areas for improvement)
 
 ## 🎯 Project Milestones
 - [ ] Project Setup and Planning
@@ -112,9 +118,9 @@ While this is primarily a learning project, suggestions and feedback are welcome
 
 ## 🌐 Links
 
-- **GitHub Repo:** [link](#)
+- **GitHub Repo:** [link](https://github.com/anusha-soh/first_agenitc_project)
 - **Live Demo:** [link](#)
-- **LinkedIn Series:** [link](#)
+- **LinkedIn Series:** [link](https://www.linkedin.com/in/anusha-badar-2572aa2b5/)
 
 ## 📄 License
 MIT – Use it, remix it, learn from it.
